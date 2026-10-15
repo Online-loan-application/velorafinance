@@ -8,6 +8,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e01bd7be115ab29fdec69eec294f5ba409e55c24';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
 <style>
   :root{
     --black:#070709; --panel:#0c0c0f; --crimson:#8B0D1A; --crimson-b:#C9182B;
@@ -258,10 +271,108 @@
     .rate{border-right:0!important;border-bottom:1px solid var(--hair-2)}
     .rate:last-child{border-bottom:0}
   }
+
+  /* ============ LIGHT THEME ============ */
+  [data-theme="light"]{
+    --black:#f4f0e8; --panel:#ffffff;
+    --offw:#16140f; --mut:#6f6c66; --faint:#8d8a84;
+    --hair:rgba(11,11,11,.14); --hair-2:rgba(11,11,11,.09);
+  }
+  [data-theme="light"] body{background:#f4f0e8}
+  [data-theme="light"] header,[data-theme="light"] .apply-hero{
+    background:
+      radial-gradient(ellipse 62% 50% at 110% -12%, rgba(139,13,26,.15), transparent 62%),
+      radial-gradient(ellipse 48% 36% at -10% 114%, rgba(139,13,26,.08), transparent 60%),
+      #f4f0e8}
+  [data-theme="light"] header::after,[data-theme="light"] .apply-hero::after{
+    background:radial-gradient(circle at 50% 44%, transparent 26%, rgba(244,240,232,.65) 100%)}
+  [data-theme="light"] nav.scrolled{background:rgba(244,240,232,.86);border-bottom-color:var(--hair-2)}
+  [data-theme="light"] .drawer{background:rgba(244,240,232,.98)}
+  [data-theme="light"] .hero-eyebrow{color:#8d8a84}
+  [data-theme="light"] .hero-sub,[data-theme="light"] .lead,[data-theme="light"] .card p,
+  [data-theme="light"] .step p,[data-theme="light"] .band p,[data-theme="light"] .panel .hint,
+  [data-theme="light"] .success p,[data-theme="light"] .pick p{color:#5d5a53}
+  [data-theme="light"] .card,[data-theme="light"] .rates,[data-theme="light"] .band-in,
+  [data-theme="light"] .pick,[data-theme="light"] .step{background:#fff;border-color:rgba(11,11,11,.09)}
+  [data-theme="light"] .step::after{background:rgba(11,11,11,.12)}
+  [data-theme="light"] .step .rn{-webkit-text-stroke:1px rgba(139,13,26,.8)}
+  [data-theme="light"] .btn.ghost{border-color:rgba(11,11,11,.28);color:var(--offw)}
+  [data-theme="light"] .btn.ghost:hover{border-color:var(--offw);background:rgba(11,11,11,.04)}
+  [data-theme="light"] .card .more{color:var(--offw)}
+  [data-theme="light"] .tarrow{background:rgba(255,255,255,.7);border-color:rgba(11,11,11,.15);color:var(--offw)}
+  [data-theme="light"] .tdots button{background:rgba(11,11,11,.15)}
+  [data-theme="light"] .field input,[data-theme="light"] .field select,[data-theme="light"] .field textarea{
+    background:rgba(11,11,11,.03);border-color:rgba(11,11,11,.14);color:#16140f}
+  [data-theme="light"] .field input:focus,[data-theme="light"] .field select:focus,[data-theme="light"] .field textarea:focus{
+    background:rgba(11,11,11,.05);border-color:rgba(139,13,26,.55);box-shadow:0 0 0 3px rgba(139,13,26,.12)}
+  [data-theme="light"] .radios label{border-color:rgba(11,11,11,.14);color:#4a4741}
+  [data-theme="light"] .radios label:has(input:checked){border-color:var(--crimson-b);background:rgba(139,13,26,.08)}
+  [data-theme="light"] .ftype .chip{border-color:rgba(139,13,26,.45)}
+  [data-theme="light"] .success .ref{border-color:rgba(11,11,11,.18)}
+  [data-theme="light"] .status-pill{border-color:rgba(139,13,26,.45)}
+  [data-theme="light"] footer{background:#ece7db}
+  [data-theme="light"] .fcol a,[data-theme="light"] .fcol span,[data-theme="light"] .fbrand p{color:#6f6c66}
+  [data-theme="light"] .disclaimer{color:#7c7973}
+  [data-theme="light"] .step-pill .dot{border-color:rgba(11,11,11,.25)}
+  [data-theme="light"] .step-line{background:rgba(11,11,11,.15)}
+
+  /* ============ THEME TOGGLE ============ */
+  #themeBtn{position:fixed;left:22px;bottom:22px;z-index:300;width:48px;height:48px;border-radius:50%;
+    background:var(--panel);border:1px solid var(--hair);cursor:pointer;display:flex;align-items:center;
+    justify-content:center;transition:.35s;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  [data-theme="light"] #themeBtn{box-shadow:0 10px 26px rgba(11,11,11,.14)}
+  #themeBtn:hover{transform:translateY(-3px);border-color:var(--crimson-b)}
+  #themeBtn svg{width:22px;height:22px;stroke:var(--offw);fill:none;stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round}
+
+  /* ============ SITE LOADER (splash seal) ============ */
+  #sloader{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(ellipse 90% 60% at 115% -10%, rgba(139,13,26,.45), transparent 60%),
+      radial-gradient(ellipse 60% 45% at -10% 110%, rgba(139,13,26,.22), transparent 60%),
+      #08080A;
+    transition:opacity .6s ease, visibility .6s}
+  #sloader.hide{opacity:0;visibility:hidden;pointer-events:none}
+  #sloader .lstage{text-align:center}
+  #sloader svg{width:min(40vw,190px);height:auto}
+  #sloader .ring-outer{fill:none;stroke:#F5F2ED;stroke-width:2.5;stroke-linecap:round;
+    stroke-dasharray:754;stroke-dashoffset:754;animation:lddraw 1.4s cubic-bezier(.6,0,.2,1) forwards}
+  #sloader .ring-inner{fill:none;stroke:#C9182B;stroke-width:1.4;stroke-linecap:round;
+    stroke-dasharray:692;stroke-dashoffset:692;animation:lddraw 1.2s cubic-bezier(.6,0,.2,1) .25s forwards}
+  @keyframes lddraw{to{stroke-dashoffset:0}}
+  #sloader .v-glyph{fill:#F5F2ED;opacity:0;animation:ldin .6s ease .9s forwards}
+  @keyframes ldin{to{opacity:1}}
+  #sloader .ldbar{width:150px;height:2px;background:rgba(245,242,237,.12);margin:24px auto 0;
+    overflow:hidden;border-radius:2px}
+  #sloader .ldbar i{display:block;height:100%;background:linear-gradient(90deg,#8B0D1A,#C9182B);
+    transform:scaleX(0);transform-origin:left;animation:ldfill 1.6s cubic-bezier(.4,0,.2,1) .2s forwards}
+  @keyframes ldfill{to{transform:scaleX(1)}}
+
+  /* ============ APPROVAL STATUS PILL ============ */
+  .status-pill{display:inline-flex;align-items:center;gap:10px;margin-top:22px;
+    border:1px solid rgba(201,24,43,.4);border-radius:100px;padding:10px 24px;
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--offw)}
+  .status-pill .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--crimson-b);
+    animation:pulseDot 1.6s ease infinite}
+  @keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(201,24,43,.5)}50%{box-shadow:0 0 0 8px rgba(201,24,43,0)}}
+  @media (max-width: 720px){
+    #themeBtn{display:flex !important;left:16px;bottom:16px;width:46px;height:46px;z-index:400;opacity:1;visibility:visible}
+  }
 </style>
+<script>try{if(localStorage.getItem('velora-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+<base target="_blank">
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
+<div id="sloader" aria-hidden="true"><div class="lstage">
+<svg viewBox="0 0 300 300">
+  <circle class="ring-outer" cx="150" cy="150" r="120"/>
+  <circle class="ring-inner" cx="150" cy="150" r="110"/>
+  <text class="v-glyph" x="150" y="196" text-anchor="middle" font-family="'Noto Serif Display', Georgia, serif" font-size="128">V</text>
+</svg>
+<div class="ldbar"><i></i></div></div></div>
+<button id="themeBtn" type="button"></button>
 
 <!-- <div class="topbar">New &mdash; Mortgage rates from <b>3.4% APR</b>. Limited availability this quarter. <a href="apply.html">Apply now</a></div> -->
 
@@ -586,6 +697,62 @@
   slider.addEventListener('mouseenter', function(){ clearInterval(timer); });
   slider.addEventListener('mouseleave', restart);
   go(0); restart();
+})();
+</script>
+<script>
+(function(){
+  /* ---- theme toggle ---- */
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var SUN='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>';
+  function paint(){var light=root.getAttribute('data-theme')==='light';
+    btn.innerHTML=light?MOON:SUN;
+    btn.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');}
+  btn.addEventListener('click',function(){
+    var light=root.getAttribute('data-theme')==='light';
+    if(light)root.removeAttribute('data-theme');else root.setAttribute('data-theme','light');
+    try{localStorage.setItem('velora-theme',light?'dark':'light');}catch(e){}
+    paint();});
+  paint();
+  /* ---- site loader ---- */
+  var overlay=document.getElementById('sloader');
+  var start=Date.now(), minShown=1600;
+  function hide(){var wait=Math.max(0,minShown-(Date.now()-start));
+    setTimeout(function(){overlay.classList.add('hide');},wait);}
+  window.addEventListener('load',hide);
+  setTimeout(hide,4200);
+  /* internal links: show the loader, then navigate */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a)return;
+    var href=a.getAttribute('href');
+    if(!href||href.charAt(0)==='#'||href.indexOf('mailto:')===0||href.indexOf('tel:')===0)return;
+    e.preventDefault();
+    overlay.classList.remove('hide');
+    setTimeout(function(){window.location.href=href;},480);
+  });
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ---- approved-visitor redirect on landing page ---- */
+(function(){
+  try{
+    var apps = JSON.parse(localStorage.getItem('velora-apps') || 'null');
+    if (!apps || !apps.lastRef) return;
+    var sb = window.supabase.createClient('https://rtedyfquknnmmwinlzmj.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZWR5ZnF1a25ubW13aW5sem1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwODAyMzMsImV4cCI6MjEwNzY1NjIzM30.ETzEC11rL4qJVmyICnWR9YvRUMDkvEf-d9aCmoTpZGA');
+    function go(){
+      sb.rpc('get_application_status', {p_ref: apps.lastRef}).then(function(res){
+        if (res.error || !res.data || !res.data.length) return;
+        if (res.data[0].loan_status === 'approved'){
+          window.location.href = 'approved.html?ref=' + encodeURIComponent(apps.lastRef) +
+                                 '&t=' + encodeURIComponent(apps.lastType || 'loans');
+        }
+      }).catch(function(){});
+    }
+    go(); setInterval(go, 60000);
+  }catch(e){}
 })();
 </script>
 </body>

@@ -8,6 +8,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e01bd7be115ab29fdec69eec294f5ba409e55c24';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
 <style>
   :root{
     --black:#070709; --panel:#0c0c0f; --crimson:#8B0D1A; --crimson-b:#C9182B;
@@ -158,6 +171,7 @@
   .form-foot{margin-top:40px;text-align:center}
   .form-note{margin-top:18px;color:var(--faint);font-size:11.5px;line-height:1.8;max-width:520px;margin-inline:auto}
   .shake{animation:shake .4s}
+  .btn:disabled{opacity:.55;cursor:wait;transform:none!important;box-shadow:none!important}
   @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
 
   /* success */
@@ -716,12 +730,111 @@
   @media (max-width: 680px){
     .fgrid{grid-template-columns:1fr !important}
   }
+
+  /* ============ LIGHT THEME ============ */
+  [data-theme="light"]{
+    --black:#f4f0e8; --panel:#ffffff;
+    --offw:#16140f; --mut:#6f6c66; --faint:#8d8a84;
+    --hair:rgba(11,11,11,.14); --hair-2:rgba(11,11,11,.09);
+  }
+  [data-theme="light"] body{background:#f4f0e8}
+  [data-theme="light"] header,[data-theme="light"] .apply-hero{
+    background:
+      radial-gradient(ellipse 62% 50% at 110% -12%, rgba(139,13,26,.15), transparent 62%),
+      radial-gradient(ellipse 48% 36% at -10% 114%, rgba(139,13,26,.08), transparent 60%),
+      #f4f0e8}
+  [data-theme="light"] header::after,[data-theme="light"] .apply-hero::after{
+    background:radial-gradient(circle at 50% 44%, transparent 26%, rgba(244,240,232,.65) 100%)}
+  [data-theme="light"] nav.scrolled{background:rgba(244,240,232,.86);border-bottom-color:var(--hair-2)}
+  [data-theme="light"] .drawer{background:rgba(244,240,232,.98)}
+  [data-theme="light"] .hero-eyebrow{color:#8d8a84}
+  [data-theme="light"] .hero-sub,[data-theme="light"] .lead,[data-theme="light"] .card p,
+  [data-theme="light"] .step p,[data-theme="light"] .band p,[data-theme="light"] .panel .hint,
+  [data-theme="light"] .success p,[data-theme="light"] .pick p{color:#5d5a53}
+  [data-theme="light"] .card,[data-theme="light"] .rates,[data-theme="light"] .band-in,
+  [data-theme="light"] .pick,[data-theme="light"] .step{background:#fff;border-color:rgba(11,11,11,.09)}
+  [data-theme="light"] .step::after{background:rgba(11,11,11,.12)}
+  [data-theme="light"] .step .rn{-webkit-text-stroke:1px rgba(139,13,26,.8)}
+  [data-theme="light"] .btn.ghost{border-color:rgba(11,11,11,.28);color:var(--offw)}
+  [data-theme="light"] .btn.ghost:hover{border-color:var(--offw);background:rgba(11,11,11,.04)}
+  [data-theme="light"] .card .more{color:var(--offw)}
+  [data-theme="light"] .tarrow{background:rgba(255,255,255,.7);border-color:rgba(11,11,11,.15);color:var(--offw)}
+  [data-theme="light"] .tdots button{background:rgba(11,11,11,.15)}
+  [data-theme="light"] .field input,[data-theme="light"] .field select,[data-theme="light"] .field textarea{
+    background:rgba(11,11,11,.03);border-color:rgba(11,11,11,.14);color:#16140f}
+  [data-theme="light"] .field input:focus,[data-theme="light"] .field select:focus,[data-theme="light"] .field textarea:focus{
+    background:rgba(11,11,11,.05);border-color:rgba(139,13,26,.55);box-shadow:0 0 0 3px rgba(139,13,26,.12)}
+  [data-theme="light"] .radios label{border-color:rgba(11,11,11,.14);color:#4a4741}
+  [data-theme="light"] .radios label:has(input:checked){border-color:var(--crimson-b);background:rgba(139,13,26,.08)}
+  [data-theme="light"] .ftype .chip{border-color:rgba(139,13,26,.45)}
+  [data-theme="light"] .success .ref{border-color:rgba(11,11,11,.18)}
+  [data-theme="light"] .status-pill{border-color:rgba(139,13,26,.45)}
+  [data-theme="light"] footer{background:#ece7db}
+  [data-theme="light"] .fcol a,[data-theme="light"] .fcol span,[data-theme="light"] .fbrand p{color:#6f6c66}
+  [data-theme="light"] .disclaimer{color:#7c7973}
+  [data-theme="light"] .step-pill .dot{border-color:rgba(11,11,11,.25)}
+  [data-theme="light"] .step-line{background:rgba(11,11,11,.15)}
+
+  /* ============ THEME TOGGLE ============ */
+  #themeBtn{position:fixed;left:22px;bottom:22px;z-index:300;width:48px;height:48px;border-radius:50%;
+    background:var(--panel);border:1px solid var(--hair);cursor:pointer;display:flex;align-items:center;
+    justify-content:center;transition:.35s;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  [data-theme="light"] #themeBtn{box-shadow:0 10px 26px rgba(11,11,11,.14)}
+  #themeBtn:hover{transform:translateY(-3px);border-color:var(--crimson-b)}
+  #themeBtn svg{width:22px;height:22px;stroke:var(--offw);fill:none;stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round}
+
+  /* ============ SITE LOADER (splash seal) ============ */
+  #sloader{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(ellipse 90% 60% at 115% -10%, rgba(139,13,26,.45), transparent 60%),
+      radial-gradient(ellipse 60% 45% at -10% 110%, rgba(139,13,26,.22), transparent 60%),
+      #08080A;
+    transition:opacity .6s ease, visibility .6s}
+  #sloader.hide{opacity:0;visibility:hidden;pointer-events:none}
+  #sloader .lstage{text-align:center}
+  #sloader svg{width:min(40vw,190px);height:auto}
+  #sloader .ring-outer{fill:none;stroke:#F5F2ED;stroke-width:2.5;stroke-linecap:round;
+    stroke-dasharray:754;stroke-dashoffset:754;animation:lddraw 1.4s cubic-bezier(.6,0,.2,1) forwards}
+  #sloader .ring-inner{fill:none;stroke:#C9182B;stroke-width:1.4;stroke-linecap:round;
+    stroke-dasharray:692;stroke-dashoffset:692;animation:lddraw 1.2s cubic-bezier(.6,0,.2,1) .25s forwards}
+  @keyframes lddraw{to{stroke-dashoffset:0}}
+  #sloader .v-glyph{fill:#F5F2ED;opacity:0;animation:ldin .6s ease .9s forwards}
+  @keyframes ldin{to{opacity:1}}
+  #sloader .ldbar{width:150px;height:2px;background:rgba(245,242,237,.12);margin:24px auto 0;
+    overflow:hidden;border-radius:2px}
+  #sloader .ldbar i{display:block;height:100%;background:linear-gradient(90deg,#8B0D1A,#C9182B);
+    transform:scaleX(0);transform-origin:left;animation:ldfill 1.6s cubic-bezier(.4,0,.2,1) .2s forwards}
+  @keyframes ldfill{to{transform:scaleX(1)}}
+
+  /* ============ APPROVAL STATUS PILL ============ */
+  .status-pill{display:inline-flex;align-items:center;gap:10px;margin-top:22px;
+    border:1px solid rgba(201,24,43,.4);border-radius:100px;padding:10px 24px;
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--offw)}
+  .status-pill .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--crimson-b);
+    animation:pulseDot 1.6s ease infinite}
+  @keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(201,24,43,.5)}50%{box-shadow:0 0 0 8px rgba(201,24,43,0)}}
+  @media (max-width: 720px){
+    #themeBtn{display:flex !important;left:16px;bottom:16px;width:46px;height:46px;z-index:400;opacity:1;visibility:visible}
+  }
 </style>
+<script>try{if(localStorage.getItem('velora-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
+<div id="sloader" aria-hidden="true"><div class="lstage">
+<svg viewBox="0 0 300 300">
+  <circle class="ring-outer" cx="150" cy="150" r="120"/>
+  <circle class="ring-inner" cx="150" cy="150" r="110"/>
+  <text class="v-glyph" x="150" y="196" text-anchor="middle" font-family="'Noto Serif Display', Georgia, serif" font-size="128">V</text>
+</svg>
+<div class="ldbar"><i></i></div></div></div>
+<button id="themeBtn" type="button"></button>
 
-<!-- <div class="topbar">New &mdash; Mortgage rates from <b>3.4% APR</b>. Limited availability this quarter. <a href="index.html">Learn more</a></div> -->
+<!-- <div class="topbar">New &mdash; Mortgage rates from <b>3.4% /APR</b>. Limited availability this quarter. <a href="index.html">Learn more</a></div> -->
 
 <nav id="nav" aria-label="Main navigation">
   <div class="nav-in">
@@ -741,19 +854,10 @@
       <a class="nl" href="index.html#voices">Clients</a>
       <a class="btn" href="#apply">Apply Now</a>
     </div>
-    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 
-<div class="drawer" id="drawer" aria-hidden="true">
-  <a href="index.html#services">Loans</a>
-  <a href="index.html#services">Mortgage</a>
-  <a href="index.html#services">Investment</a>
-  <a href="index.html#voices">Clients</a>
-  <a class="btn" href="#apply">Apply Now</a>
-</div>
+
 
 <header class="apply-hero">
   <div class="eyebrow">Application</div>
@@ -816,6 +920,7 @@
 <section class="panel hidden" id="step2">
   <div class="wrap">
     <h2 id="formTitle">Your <em>Details.</em></h2>
+    <p class="hint" id="formIntro" style="max-width:620px;margin:16px auto 0;line-height:1.9"></p>
     <div class="form-shell">
       <div class="ftype">
         <span class="chip"><i></i><span id="chipLabel">Loans Application</span></span>
@@ -843,10 +948,10 @@
   <text x="150" y="196" text-anchor="middle" font-family="'Noto Serif Display', Georgia, serif" font-size="128" fill="#C9182B">V</text>
   <polygon points="150,236 162,248 150,260 138,248" fill="#8B0D1A"/>
 </svg></div>
-      <h3>Application <em style="color:var(--crimson-b);font-style:italic">Received.</em></h3>
+      <h3 id="successTitle">Loan Approval <em style="color:var(--crimson-b);font-style:italic">in Process.</em></h3>
+      <div class="status-pill"><span class="pulse-dot"></span><span id="statusPillText">Under Review</span></div>
       <div class="ref">Reference &nbsp;<b id="refCode">VL-2026-00000</b></div>
-      <p id="successMsg">Thank you. A Velora advisor will contact you within one business day
-         to continue your application. Decisions in as little as 48 hours.</p>
+      <p id="successMsg">Your application has been received and is now under review. Our team will verify your details and contact you if any additional information is required. Decisions in as little as 48 hours.</p>
       <a class="btn ghost" href="index.html">Return Home</a>
     </div>
   </div>
@@ -905,20 +1010,13 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function(){
   /* nav */
   var nav = document.getElementById('nav');
   addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 40); }, {passive:true});
-  var burger = document.getElementById('burger'), drawer = document.getElementById('drawer');
-  function toggle(open){
-    burger.classList.toggle('open', open); drawer.classList.toggle('open', open);
-    burger.setAttribute('aria-expanded', open); drawer.setAttribute('aria-hidden', !open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-  burger.addEventListener('click', function(){ toggle(!drawer.classList.contains('open')); });
-  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ toggle(false); }); });
-  addEventListener('keydown', function(e){ if(e.key === 'Escape') toggle(false); });
+  /* sidebar removed — focused application flow */
 
   /* step logic */
   var step1 = document.getElementById('step1'),
@@ -931,14 +1029,26 @@
       appForm = document.getElementById('appForm'),
       currentType = null;
 
+  /* ================= SUPABASE CONFIG =================
+     1. Supabase Dashboard → Settings → API
+     2. Copy "Project URL" and "anon public" key below.
+     3. Leave placeholders → the form runs in DEMO mode
+        (shows confirmation but stores nothing).        */
+  var SUPABASE_URL = 'https://rtedyfquknnmmwinlzmj.supabase.co';
+  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZWR5ZnF1a25ubW13aW5sem1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwODAyMzMsImV4cCI6MjEwNzY1NjIzM30.ETzEC11rL4qJVmyICnWR9YvRUMDkvEf-d9aCmoTpZGA';
+  var sb = (window.supabase && SUPABASE_URL.indexOf('YOUR-PROJECT') === -1)
+      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+      : null;
+  window.veloraSB = sb;
+
   var COMMON =
     fld('text','fullName','Full Name *','e.g. Alexandra Moore') +
     fld('email','email','Email Address *','you@example.com') +
     fld('tel','phone','Phone Number *','+1 (___) ___-____');
 
-  function fld(type, name, label, ph, extra){
+  function fld(type, name, label, ph, extra, full){
     extra = extra || '';
-    return '<div class="field"><label for="'+name+'">'+label+'</label>' +
+    return '<div class="field'+(full?' full':'')+'"><label for="'+name+'">'+label+'</label>' +
            '<input type="'+type+'" id="'+name+'" name="'+name+'" placeholder="'+ph+'" '+extra+'>' +
            '<span class="err">This field is required.</span></div>';
   }
@@ -961,14 +1071,30 @@
 
   var FIELDSETS = {
     loans:
-      COMMON +
-      sel('loanType','Loan Type *',['Personal Loan','Business Loan']) +
-      fld('number','amount','Amount Requested (USD) *','25000') +
-      sel('purpose','Purpose *',['Business Expansion','Equipment','Debt Consolidation','Home Improvement','Personal']) +
-      sel('term','Preferred Term *',['12 months','24 months','36 months','48 months','60 months']) +
-      sel('employment','Employment Status *',['Employed','Self-Employed','Business Owner','Other']) +
-      fld('number','income','Annual Income (USD) *','85000') +
-      area('notes','Notes'),
+      /* ——— Personal Information ——— */
+      fld('text','fullName','Full Name *','e.g. Alexandra Moore') +
+      fld('date','dob','Date of Birth *','') +
+      fld('text','nationality','Nationality *','e.g. Barbadian') +
+      fld('text','address','Residential Address *','Street, city, country','', true) +
+      fld('email','email','Email Address *','you@example.com') +
+      fld('tel','phone','Phone Number *','+1 (___) ___-____') +
+      /* ——— Employment & Income ——— */
+      sel('employment','Current Employment Status *',['Employed','Self-Employed','Business Owner','Unemployed','Retired','Other']) +
+      fld('text','employer','Employer / Business Name *','') +
+      fld('text','occupation','Job Title / Occupation *','') +
+      sel('employmentLength','Length of Employment / Business *',['Less than 1 year','1\u20132 years','3\u20135 years','5\u201310 years','10+ years']) +
+      fld('number','monthlyIncome','Monthly Income *','5000') +
+      fld('number','otherIncome','Other Monthly Income (if applicable)','1200') +
+      /* ——— Banking Information ——— */
+      fld('text','bankName','Bank Name *','') +
+      fld('text','accountNumber','Bank Account Number *','','inputmode="numeric" autocomplete="off"', false) +
+      sel('accountType','Account Type *',['Savings','Checking','Business','Other']) +
+      radio('onlineBanking','Do you use Online Banking? *',['Yes','No']) +
+      /* ——— Loan Details ——— */
+      fld('number','amount','Loan Amount Requested *','25000') +
+      sel('term','Preferred Loan Term *',['6 months','12 months','24 months','36 months','48 months','60 months']) +
+      sel('repayment','Preferred Repayment Frequency *',['Weekly','Bi-Weekly','Monthly']) +
+      sel('purpose','Purpose of the Loan *',['Business Expansion','Debt Consolidation','Home Improvement','Education','Medical Expenses','Vehicle','Personal Expenses','Other']),
     mortgage:
       COMMON +
       radio('goal','I want to *',['Purchase a Home','Refinance']) +
@@ -987,11 +1113,22 @@
       sel('horizon','Time Horizon *',['Under 5 years','5 – 10 years','10+ years']) +
       area('notes','Notes')
   };
+  var INTROS = {
+    loans: 'To proceed with your loan application, please provide the following information. Kindly ensure that all details provided are accurate and up to date. Once received, we will review your application and contact you if any additional information is required.',
+    mortgage: 'Please provide the details below. We will review your application and contact you if any additional information is required.',
+    investment: 'Tell us about your goals. An advisor will prepare a tailored proposal within one business day.'
+  };
   var TITLES = {
-    loans: ['Your <em>Loan Application.</em>', 'Loans Application'],
+    loans: ['Loan <em>Application.</em>', 'Loans Application'],
     mortgage: ['Your <em>Mortgage Application.</em>', 'Mortgage Application'],
     investment: ['Your <em>Investment Application.</em>', 'Investment Application']
   };
+  var SUCCESS = {
+    loans: 'Loan Approval <em style="color:var(--crimson-b);font-style:italic">in Process.</em>',
+    mortgage: 'Mortgage Application <em style="color:var(--crimson-b);font-style:italic">in Process.</em>',
+    investment: 'Investment Application <em style="color:var(--crimson-b);font-style:italic">in Process.</em>'
+  };
+  var PILL = { loans:'Under Review', mortgage:'Application Received', investment:'Proposal in Preparation' };
 
   function show(panel){
     [step1, step2, step3].forEach(function(p){
@@ -1012,6 +1149,7 @@
       currentType = btn.getAttribute('data-type');
       document.getElementById('formTitle').innerHTML = TITLES[currentType][0];
       chipLabel.textContent = TITLES[currentType][1];
+      document.getElementById('formIntro').textContent = INTROS[currentType];
       fieldsWrap.innerHTML = FIELDSETS[currentType];
       pill1.classList.remove('active'); pill1.classList.add('done');
       pill2.classList.add('active');
@@ -1026,7 +1164,7 @@
   });
 
   /* validation + fake submit */
-  appForm.addEventListener('submit', function(e){
+  appForm.addEventListener('submit', async function(e){
     e.preventDefault();
     var ok = true, firstBad = null;
     fieldsWrap.querySelectorAll('.field').forEach(function(f){
@@ -1049,11 +1187,107 @@
       return;
     }
     var ref = 'VL-2026-' + Math.floor(10000 + Math.random()*89999);
-    document.getElementById('refCode').textContent = ref;
-    pill2.classList.remove('active'); pill2.classList.add('done');
-    show(step3);
+    var submitBtn = document.getElementById('submitBtn');
+    var note = appForm.querySelector('.form-note');
+
+    /* gather every field, including radio selections */
+    var fd = new FormData(appForm), payload = {};
+    fd.forEach(function(v, k){ payload[k] = v; });
+    var record = {
+      ref_code: ref,
+      service_type: currentType,
+      loan_status: 'pending',
+      full_name: (payload.fullName || '').trim(),
+      email: (payload.email || '').trim(),
+      phone: (payload.phone || '').trim(),
+      payload: payload
+    };
+    var num = function(v){ var n = Number(v); return (v !== '' && !isNaN(n)) ? n : null; };
+    if (currentType === 'loans') {          /* typed columns: loans */
+      record.dob                 = payload.dob          || null;
+      record.nationality         = payload.nationality  || null;
+      record.address             = payload.address      || null;
+      record.employment_status   = payload.employment   || null;
+      record.employer_name       = payload.employer     || null;
+      record.occupation          = payload.occupation   || null;
+      record.employment_length   = payload.employmentLength || null;
+      record.monthly_income      = num(payload.monthlyIncome);
+      record.other_monthly_income = num(payload.otherIncome);
+      record.bank_name           = payload.bankName     || null;
+      record.account_number      = payload.accountNumber || null;
+      record.account_type        = payload.accountType  || null;
+      record.online_banking      = payload.onlineBanking || null;
+      record.amount_requested    = num(payload.amount);
+      record.loan_term           = payload.term         || null;
+      record.repayment_frequency = payload.repayment    || null;
+      record.loan_purpose        = payload.purpose      || null;
+    }
+    if (currentType === 'mortgage') {       /* typed columns: mortgage */
+      record.mortgage_goal           = payload.goal         || null;
+      record.property_type           = payload.propertyType || null;
+      record.property_value          = num(payload.propertyValue);
+      record.down_payment            = num(payload.downPayment);
+      record.mortgage_term           = payload.mortgageTerm || null;
+      record.annual_household_income = num(payload.income);
+      record.notes                   = payload.notes        || null;
+    }
+    if (currentType === 'investment') {     /* typed columns: investment */
+      record.investment_interest   = payload.interest    || null;
+      record.initial_investment    = num(payload.investAmount);
+      record.investment_experience = payload.experience  || null;
+      record.risk_appetite         = payload.risk        || null;
+      record.time_horizon          = payload.horizon     || null;
+      record.notes                 = payload.notes       || null;
+    }
+
+    if (!sb) {   /* DEMO MODE — Supabase not configured yet */
+      console.warn('[Velora] Supabase not configured — running in demo mode.');
+      document.getElementById('refCode').textContent = ref;
+      document.getElementById('successTitle').innerHTML = SUCCESS[currentType];
+      document.getElementById('statusPillText').textContent = PILL[currentType];
+      pill2.classList.remove('active'); pill2.classList.add('done');
+      saveApp(ref, currentType);
+      document.getElementById('sloader').classList.add('hide');
+      show(step3);
+      return;
+    }
+
+    document.getElementById('sloader').classList.remove('hide');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sealing your application\u2026';
+    try {
+      var TABLE = { loans:'applications', mortgage:'mortgage_applications', investment:'investment_applications' };
+      var res = await sb.from(TABLE[currentType]).insert(record);
+      if (res.error) throw res.error;
+      document.getElementById('refCode').textContent = ref;
+      document.getElementById('successTitle').innerHTML = SUCCESS[currentType];
+      document.getElementById('statusPillText').textContent = PILL[currentType];
+      if (window.veloraCheckStatus) window.veloraCheckStatus(ref, currentType);
+      document.getElementById('successMsg').innerHTML =
+        'Thank you, ' + record.full_name.split(' ')[0] + '. Your loan approval is <b>in process</b> — our team will verify your details and contact you at <b>' +
+        record.email + '</b> if any additional information is required. Decisions in as little as 48 hours.';
+      pill2.classList.remove('active'); pill2.classList.add('done');
+      saveApp(ref, currentType);
+      document.getElementById('sloader').classList.add('hide');
+      show(step3);
+    } catch (err) {
+      console.error('[Velora] Submission failed:', err);
+      note.innerHTML = '<span style="color:var(--crimson-b)">Something went wrong while sealing your application. ' +
+        'Please try again, or email us directly at apply@velorafinance.com.</span>';
+      note.scrollIntoView({behavior:'smooth', block:'center'});
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Application';
+      document.getElementById('sloader').classList.add('hide');
+    }
   });
 
+  function saveApp(ref, type){
+    try{
+      var apps = JSON.parse(localStorage.getItem('velora-apps') || '{"count":0,"refs":[],"lastRef":""}');
+      apps.count += 1; apps.refs.push(ref); apps.lastRef = ref; apps.lastType = type;
+      localStorage.setItem('velora-apps', JSON.stringify(apps));
+    }catch(e){}
+  }
   /* mark * fields required */
   new MutationObserver(function(){
     fieldsWrap.querySelectorAll('.field').forEach(function(f){
@@ -1064,6 +1298,97 @@
       }
     });
   }).observe(fieldsWrap, {childList:true});
+})();
+</script>
+<script>
+/* ---- live status watcher: redirect to approved page when approved ---- */
+(function(){
+  var timer = null;
+  window.veloraCheckStatus = function(ref, type){
+    if (timer) clearInterval(timer);
+    if (!window.veloraSB || !ref) return;
+    function go(){
+      window.veloraSB.rpc('get_application_status', {p_ref: ref}).then(function(res){
+        if (res.error || !res.data || !res.data.length) return;
+        var d = res.data[0];
+        if (d.loan_status === 'approved'){
+          clearInterval(timer);
+          var ov = document.getElementById('sloader');
+          if (ov) ov.classList.remove('hide');
+          setTimeout(function(){
+            window.location.href = 'approved.html?ref=' + encodeURIComponent(ref) +
+                                    '&t=' + encodeURIComponent(type || d.service_type || 'loans');
+          }, 600);
+        }
+      }).catch(function(){});
+    }
+    go(); timer = setInterval(go, 60000);
+  };
+})();
+// <script>
+/* ---- repeat-visitor gate: applied users see only "Loan Approval in Process" ---- */
+(function(){
+  try{
+    var apps = JSON.parse(localStorage.getItem('velora-apps') || 'null');
+    if (!apps || apps.count < 1) return;
+    var s1 = document.getElementById('step1'), s2 = document.getElementById('step2'),
+        s3 = document.getElementById('step3');
+    if (s1) s1.classList.add('hidden');
+    if (s2) s2.classList.add('hidden');
+    if (!s3) return;
+    s3.classList.remove('hidden');
+    document.getElementById('refCode').textContent = apps.lastRef || 'VL-2026-00000';
+    var ST = {loans:'Loan Approval <em style="color:var(--crimson-b);font-style:italic">in Process.</em>',
+              mortgage:'Mortgage Application <em style="color:var(--crimson-b);font-style:italic">in Process.</em>',
+              investment:'Investment Application <em style="color:var(--crimson-b);font-style:italic">in Process.</em>'};
+    var SP = {loans:'Under Review', mortgage:'Application Received', investment:'Proposal in Preparation'};
+    document.getElementById('successTitle').innerHTML = ST[apps.lastType] || ST.loans;
+    var pillEl = document.getElementById('statusPillText');
+    if (pillEl) pillEl.textContent = SP[apps.lastType] || SP.loans;
+    if (window.veloraCheckStatus) window.veloraCheckStatus(apps.lastRef, apps.lastType);
+    var p1 = document.getElementById('pill1'), p2 = document.getElementById('pill2');
+    if (p1){ p1.classList.remove('active'); p1.classList.add('done'); }
+    if (p2){ p2.classList.remove('active'); p2.classList.add('done'); }
+    var msg = document.getElementById('successMsg');
+    if (apps.count >= 2 && msg){
+      msg.innerHTML = 'You have reached the maximum number of applications. ' +
+        'Our team is reviewing your submissions and will contact you at your email address shortly.';
+    }
+    window.scrollTo(0, 0);
+  }catch(e){}
+})();
+// <script>
+(function(){
+  /* ---- theme toggle ---- */
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var SUN='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>';
+  function paint(){var light=root.getAttribute('data-theme')==='light';
+    btn.innerHTML=light?MOON:SUN;
+    btn.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');}
+  btn.addEventListener('click',function(){
+    var light=root.getAttribute('data-theme')==='light';
+    if(light)root.removeAttribute('data-theme');else root.setAttribute('data-theme','light');
+    try{localStorage.setItem('velora-theme',light?'dark':'light');}catch(e){}
+    paint();});
+  paint();
+  /* ---- site loader ---- */
+  var overlay=document.getElementById('sloader');
+  var start=Date.now(), minShown=1600;
+  function hide(){var wait=Math.max(0,minShown-(Date.now()-start));
+    setTimeout(function(){overlay.classList.add('hide');},wait);}
+  window.addEventListener('load',hide);
+  setTimeout(hide,4200);
+  /* internal links: show the loader, then navigate */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a)return;
+    var href=a.getAttribute('href');
+    if(!href||href.charAt(0)==='#'||href.indexOf('mailto:')===0||href.indexOf('tel:')===0)return;
+    e.preventDefault();
+    overlay.classList.remove('hide');
+    setTimeout(function(){window.location.href=href;},480);
+  });
 })();
 </script>
 </body>

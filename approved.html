@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approved — Velora Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#070709; --panel:#0c0c0f; --crimson:#8B0D1A; --crimson-b:#C9182B;
+    --offw:#F5F2ED; --mut:#98958f; --faint:#6d6b66;
+    --hair:rgba(245,242,237,.12); --hair-2:rgba(245,242,237,.07);
+    --serif:'Noto Serif Display', Georgia, serif; --sans:'Inter', Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--black);color:var(--offw);font-family:var(--sans);font-weight:300;
+       -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;
+       align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative;overflow:hidden;
+       background:
+         radial-gradient(ellipse 70% 55% at 110% -10%, rgba(139,13,26,.5), transparent 62%),
+         radial-gradient(ellipse 50% 40% at -10% 115%, rgba(139,13,26,.22), transparent 60%),
+         var(--black)}
+  ::selection{background:var(--crimson);color:var(--offw)}
+  svg{display:block}
+  .seal{width:clamp(120px,16vw,170px);margin-bottom:40px;position:relative;
+        filter:drop-shadow(0 0 34px rgba(201,24,43,.5));animation:pop 1.2s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+  .eyebrow{font-size:11px;letter-spacing:.55em;text-transform:uppercase;color:var(--crimson-b);
+           opacity:0;animation:fadeUp .9s ease .5s forwards}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,8vw,96px);line-height:1.05;margin-top:14px;
+     opacity:0;animation:fadeUp .9s ease .7s forwards}
+  h1 em{font-style:italic;color:var(--crimson-b)}
+  .who{font-family:var(--serif);font-size:clamp(19px,2.4vw,26px);margin-top:22px;color:#d8d5cf;
+       opacity:0;animation:fadeUp .9s ease .95s forwards}
+  .msg{max-width:520px;margin:22px auto 0;color:#b6b3ad;font-size:15px;line-height:1.9;
+       opacity:0;animation:fadeUp .9s ease 1.15s forwards}
+  .ref{display:inline-block;margin-top:30px;border:1px solid var(--hair);border-radius:100px;
+       padding:12px 30px;font-size:12px;letter-spacing:.28em;color:var(--offw);
+       opacity:0;animation:fadeUp .9s ease 1.3s forwards}
+  .ref b{color:var(--crimson-b);font-weight:500}
+  .steps{display:flex;gap:clamp(18px,4vw,40px);margin-top:48px;flex-wrap:wrap;justify-content:center;
+         opacity:0;animation:fadeUp .9s ease 1.5s forwards}
+  .step{max-width:200px}
+  .step .n{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--crimson-b)}
+  .step h4{font-family:var(--serif);font-weight:500;font-size:17px;margin-top:8px}
+  .step p{font-size:12.5px;color:var(--mut);margin-top:8px;line-height:1.7}
+  .cta{margin-top:52px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;
+       opacity:0;animation:fadeUp .9s ease 1.7s forwards}
+  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--crimson);color:var(--offw);
+       padding:15px 36px;border-radius:100px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+       font-weight:500;border:1px solid var(--crimson);transition:.35s;text-decoration:none;font-family:var(--sans)}
+  .btn:hover{background:var(--crimson-b);transform:translateY(-2px);box-shadow:0 14px 36px rgba(139,13,26,.42)}
+  .btn.ghost{background:transparent;border-color:rgba(245,242,237,.3)}
+  .btn.ghost:hover{border-color:var(--offw);box-shadow:none}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .check{width:46px;height:46px;margin:0 auto 26px}
+  .check circle{fill:none;stroke:var(--crimson-b);stroke-width:2;stroke-dasharray:151;stroke-dashoffset:151;animation:draw 1s .3s ease forwards}
+  .check path{fill:none;stroke:var(--offw);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+              stroke-dasharray:40;stroke-dashoffset:40;animation:draw .6s 1s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  #themeBtn{position:fixed;left:22px;bottom:22px;z-index:300;width:48px;height:48px;border-radius:50%;
+    background:var(--panel);border:1px solid var(--hair);cursor:pointer;display:flex;align-items:center;
+    justify-content:center;transition:.35s}
+  #themeBtn:hover{transform:translateY(-3px);border-color:var(--crimson-b)}
+  #themeBtn svg{width:22px;height:22px;stroke:var(--offw);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  @media (max-width:720px){#themeBtn{left:16px;bottom:16px}}
+</style>
+<script>try{if(localStorage.getItem('velora-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+<base target="_blank">
+</head>
+<body>
+  <div class="seal"><svg viewBox="0 0 300 300">
+    <circle cx="150" cy="150" r="120" fill="none" stroke="#C9182B" stroke-width="4"/>
+    <circle cx="150" cy="150" r="110" fill="none" stroke="#8B0D1A" stroke-width="2"/>
+    <text x="150" y="196" text-anchor="middle" font-family="'Noto Serif Display', Georgia, serif" font-size="128" fill="#F5F2ED">V</text>
+    <polygon points="150,236 162,248 150,260 138,248" fill="#C9182B"/>
+  </svg></div>
+
+  <div class="check"><svg viewBox="0 0 52 52">
+    <circle cx="26" cy="26" r="24"/>
+    <path d="M15 27l8 8 15-16"/>
+  </svg></div>
+
+  <div class="eyebrow">Application Approved</div>
+  <h1 id="headline">Congratulations,<br><em id="hlName">Valued Client.</em></h1>
+  <p class="who" id="whoLine">Your loan has been approved.</p>
+  <p class="msg">Our team has completed the review of your application. An advisor will contact you within
+     one business day to finalize documentation and arrange disbursement. Welcome to Velora.</p>
+  <div class="ref">Reference &nbsp;<b id="refCode">—</b></div>
+
+  <div class="steps">
+    <div class="step"><div class="n">No. I</div><h4>Advisor Call</h4><p>We call you to confirm final terms and answer any questions.</p></div>
+    <div class="step"><div class="n">No. II</div><h4>Documentation</h4><p>Simple paperwork, sealed digitally — no branch visits.</p></div>
+    <div class="step"><div class="n">No. III</div><h4>Disbursement</h4><p>Funds released to your account, typically within 48 hours.</p></div>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="index.html">Return Home</a>
+    <a class="btn ghost" href="mailto:hello@velorafinance.com">Contact Your Advisor</a>
+  </div>
+
+  <button id="themeBtn" type="button" aria-label="Toggle theme"></button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var ref = q.get('ref') || '';
+  var type = q.get('t') || 'loans';
+  if (ref) document.getElementById('refCode').textContent = ref;
+
+  var LINES = {
+    loans:      {who:'Your loan has been approved.',        hl:'Your loan has been approved.'},
+    mortgage:   {who:'Your mortgage has been approved.',    hl:'Your mortgage is approved.'},
+    investment: {who:'Your investment account is approved.',hl:'Welcome to Velora Invest.'}
+  };
+  var L = LINES[type] || LINES.loans;
+  document.getElementById('whoLine').textContent = L.who;
+  document.title = 'Approved — Velora Finance';
+
+  /* verify + personalize via the secure RPC */
+  try{
+    var sb = window.supabase.createClient('https://rtedyfquknnmmwinlzmj.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZWR5ZnF1a25ubW13aW5sem1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwODAyMzMsImV4cCI6MjEwNzY1NjIzM30.ETzEC11rL4qJVmyICnWR9YvRUMDkvEf-d9aCmoTpZGA');
+    if (ref) sb.rpc('get_application_status', {p_ref: ref}).then(function(res){
+      if (!res.error && res.data && res.data.length){
+        var d = res.data[0];
+        var first = (d.full_name || '').trim().split(' ')[0];
+        if (first) document.getElementById('hlName').textContent = first + '.';
+        if (d.service_type && LINES[d.service_type] && !q.get('t')){
+          document.getElementById('whoLine').textContent = LINES[d.service_type].who;
+        }
+        /* not actually approved? send them back to check status */
+        if (d.loan_status !== 'approved'){
+          window.location.href = 'apply.html';
+        }
+      }
+    }).catch(function(){});
+  }catch(e){}
+
+  /* theme toggle */
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var SUN='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>';
+  function paint(){btn.innerHTML = root.getAttribute('data-theme')==='light' ? MOON : SUN;}
+  btn.addEventListener('click',function(){
+    var light=root.getAttribute('data-theme')==='light';
+    if(light)root.removeAttribute('data-theme');else root.setAttribute('data-theme','light');
+    try{localStorage.setItem('velora-theme',light?'dark':'light');}catch(e){}
+    paint();});
+  paint();
+})();
+</script>
+</body>
+</html>
