@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velora Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; background:#08080A; overflow:hidden; }
+  body {
+    font-family:'Noto Serif Display', Georgia, serif;
+    display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(ellipse 90% 60% at 115% -10%, rgba(139,13,26,.55), transparent 60%),
+      radial-gradient(ellipse 60% 45% at -10% 110%, rgba(139,13,26,.28), transparent 60%),
+      #08080A;
+  }
+  .stage { text-align:center; position:relative; }
+  /* glow pool behind seal */
+  .stage::before {
+    content:''; position:absolute; inset:-35%;
+    background:radial-gradient(circle, rgba(139,13,26,.22), transparent 65%);
+    animation: breathe 3.2s ease-in-out infinite;
+  }
+  @keyframes breathe { 0%,100%{opacity:.6; transform:scale(1);} 50%{opacity:1; transform:scale(1.06);} }
+
+  svg.seal { width:min(64vw, 340px); height:auto; position:relative; }
+  .ring-outer, .ring-inner { fill:none; stroke-linecap:round; transform-origin:150px 150px; }
+  .ring-outer { stroke:#F5F2ED; stroke-width:2.5; stroke-dasharray:754; stroke-dashoffset:754;
+    animation: draw 1.7s cubic-bezier(.6,0,.2,1) .15s forwards; }
+  .ring-inner { stroke:#8B0D1A; stroke-width:1.4; stroke-dasharray:692; stroke-dashoffset:692;
+    animation: draw 1.5s cubic-bezier(.6,0,.2,1) .55s forwards; }
+  @keyframes draw { to { stroke-dashoffset:0; } }
+  .v-glyph { fill:#F5F2ED; opacity:0; transform-origin:150px 150px;
+    animation: rise 1s cubic-bezier(.2,.8,.2,1) 1.35s forwards; }
+  @keyframes rise { from{opacity:0; transform:translateY(14px) scale(.96);} to{opacity:1; transform:none;} }
+  .diamond { fill:#B0242E; opacity:0; transform-origin:150px 244px;
+    animation: pulse 1.6s ease 2s infinite; animation-fill-mode:forwards; }
+  @keyframes pulse { 0%{opacity:0; transform:scale(.4);} 25%{opacity:1; transform:scale(1);} 50%{opacity:.55;} 100%{opacity:1; transform:scale(1);} }
+
+  .wordmark { margin-top:34px; color:#F5F2ED; font-size:clamp(26px,4.6vw,40px); letter-spacing:.42em;
+    text-indent:.42em; opacity:0; animation: fadeUp .9s ease 2.1s forwards; }
+  .sub { margin-top:10px; color:#8B0D1A; font-size:clamp(11px,1.8vw,14px); letter-spacing:.55em; text-indent:.55em;
+    font-family:Georgia,serif; opacity:0; animation: fadeUp .9s ease 2.35s forwards; }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;} }
+
+  /* loader bar */
+  .loader { width:min(52vw, 240px); height:2px; background:rgba(245,242,237,.12);
+    margin:38px auto 0; position:relative; overflow:hidden; opacity:0; animation:fadeIn .4s ease 2.2s forwards; }
+  .loader .fill { position:absolute; inset:0; background:linear-gradient(90deg,#8B0D1A,#C9182B);
+    transform:scaleX(0); transform-origin:left; animation: fill 1.15s cubic-bezier(.4,0,.2,1) 2.25s forwards; }
+  @keyframes fill { to { transform:scaleX(1); } }
+  @keyframes fadeIn { to{opacity:1;} }
+  .pct { margin-top:14px; color:#6a6866; font-size:12px; letter-spacing:.3em; text-indent:.3em;
+    font-family:Georgia,serif; opacity:0; animation:fadeIn .4s ease 2.2s forwards; }
+
+  /* exit */
+  .splash { animation: exit .8s cubic-bezier(.7,0,.3,1) 3.55s forwards; }
+  @keyframes exit { to { opacity:0; transform:scale(1.04); visibility:hidden; } }
+</style>
+<base target="_blank">
+</head>
+<body>
+<div class="splash">
+  <div class="stage">
+    <svg class="seal" viewBox="0 0 300 300" aria-label="Velora Finance">
+      <circle class="ring-outer" cx="150" cy="150" r="120"/>
+      <circle class="ring-inner" cx="150" cy="150" r="110"/>
+      <text class="v-glyph" x="150" y="196" text-anchor="middle" font-family="Noto Serif Display, Georgia, serif"
+            font-size="128" fill="#F5F2ED">V</text>
+      <rect class="diamond" x="144" y="238" width="12" height="12"
+            transform="rotate(45 150 244)"/>
+    </svg>
+    <div class="wordmark">VELORA</div>
+    <div class="sub">F I N A N C E</div>
+    <div class="loader"><div class="fill"></div></div>
+    <div class="pct" id="pct">0%</div>
+  </div>
+</div>
+<script>
+  // animated percentage counter (the loader)
+  (function(){
+    var el = document.getElementById('pct'), t0 = null;
+    function tick(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min((ts - t0) / 1150, 1);
+      el.textContent = Math.round(p * 100) + '%';
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    setTimeout(function(){ requestAnimationFrame(tick); }, 2250);
+  })();
+  // hand off to the landing page when the splash finishes.
+  // >>> Change 'index.html' below to your real page URL <<<
+  setTimeout(function(){ window.location.href = 'velora.html'; }, 3650);
+</script>
+</body>
+</html>
